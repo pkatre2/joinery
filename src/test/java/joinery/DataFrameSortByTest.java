@@ -101,4 +101,19 @@ public class DataFrameSortByTest {
                 sorted.col(1).toArray()
             );
     }
+    @Test
+    public final void testSortByIdx() {
+        final DataFrame<Object> sorted = df.sortBy("value").sortByIdx();
+        assertArrayEquals(
+                "original index values are unsorted",
+                new Object[] {3, 0, 4, 2, 1, 5},
+                df.sortBy("name").index().toArray()
+            );
+	System.out.println(sorted);
+        assertArrayEquals(
+                "index values are sorted",
+                new Object[] { 1, 2, 3, 4, 5, 6 },
+                sorted.col(1).toArray()
+            );
+    }
 }
