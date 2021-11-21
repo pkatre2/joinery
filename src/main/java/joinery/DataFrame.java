@@ -1829,6 +1829,15 @@ implements Iterable<List<V>> {
         return Sorting.sort(this, comparator);
     }
     
+   /**
+   * Returning DataFrame with sorted on index, this method called with DataFrame
+   * and it will apply the sorting on index or labels and return the sorted DataFrame
+   *
+   * @param None
+   * 
+   * @return Sorted DataFrame on index
+   */
+   
     public DataFrame<V> sortByIdx() {
             return Sorting.sortByIdx(this);
     }
