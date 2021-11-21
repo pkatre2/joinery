@@ -817,6 +817,10 @@ implements Iterable<List<V>> {
         return Combining.concat(this, others);
     }
 
+    @SafeVarargs
+    public final DataFrame<V> concat(final JoinType jtype, final DataFrame<? extends V> ... others) {
+        return Combining.concat(this, jtype, others);
+    }
     /**
      * Update the data frame in place by overwriting any null values with
      * any non-null values provided by the data frame arguments.
@@ -1824,7 +1828,11 @@ implements Iterable<List<V>> {
     public DataFrame<V> sortBy(final Comparator<List<V>> comparator) {
         return Sorting.sort(this, comparator);
     }
-
+    
+    public DataFrame<V> sortByIdx() {
+            return Sorting.sortByIdx(this);
+    }
+                
     /**
      * Return the types for each of the data frame columns.
      *
